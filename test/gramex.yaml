@@ -1,0 +1,34 @@
+url:
+    combinations:
+        pattern: /multiply
+        handler: FunctionHandler
+        kwargs:
+            function: calculations.multiply
+            headers:
+                Content-Type: application/json
+    lookup:
+        pattern: /name/([a-z]+)/age/([0-9]+)        # e.g. /name/john/age/21
+        handler: FunctionHandler                    # Runs a function
+        kwargs:
+            function: calculations.name_age         # Run this function
+
+    method:
+        pattern: /method          # The URL /method
+        handler: FunctionHandler  # Runs a function
+        kwargs:
+            function: random.randrange(start=0, stop=100)
+    path:
+        pattern: /path/(.*?)/(.*?)
+        handler: FunctionHandler
+        kwargs:
+            function: handler.path_args
+    args:
+        pattern: /args
+        handler: FunctionHandler
+        kwargs:
+            function: handler.argparse()
+    download-pdf:
+        pattern: /download-pdf
+        handler: FunctionHandler
+        kwargs:
+            function: gramex.cache.open('download.pdf', 'bin')

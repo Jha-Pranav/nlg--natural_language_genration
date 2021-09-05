@@ -1,0 +1,9 @@
+tornado
+cryptography
+elasticsearch
+inflect
+numpy
+pandas
+PyYAML
+spacy
+SQLAlchemy

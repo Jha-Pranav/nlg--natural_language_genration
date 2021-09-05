@@ -1,0 +1,15 @@
+---
+policy_complaint:
+  policy_changes:
+    select Query_ran_time,"Host Name",DOMAIN_NAME,"Backup
+    Technology",POLICY_SET,MGMT_CLASS,CHANGE_DONE_BY from "bur-backup_use" where POLICY_SET
+    is not null and POLICY_SET != '' and Query_ran_time >='from_timestamp' and Query_ran_time<=
+    'to_timestamp'
+  backup_copies:
+    select "Host Name",sum("Days") as "Days" from "bur-backup_use" where "Host
+    Name" is not null and "Host Name"!='' group by "Host Name"
+  retention_status:
+    select "Host Name","STATE",count(STATE) as Count from "bur-backup_use2" where STATE is not null and STATE != '' group by "Host Name",STATE
+
+job_failure:
+
